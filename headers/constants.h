@@ -2,7 +2,7 @@
 #define CONSTANTS_H
 
 namespace constants {
-	double pi = 3.14159;
+	const double gravity = 9.8;
 }
 
 #endif

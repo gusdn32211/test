@@ -1,59 +1,66 @@
 #include <iostream>
+#include <math.h> 
 #include "headers/add.h"
 #include "headers/constants.h"
+
 using namespace std;
 
-class Book {
-	private: 
-		int price;
-		string title;
-		string author;
-		int pages;
-	public: 
+// class Book {
+// 	private: 
+// 		int price;
+// 		string title;
+// 		string author;
+// 		int pages;
+// 	public: 
 
-		Book(string aTitle, string aAuthor, int aPages, int aPrice) {
-			title = aTitle;
-			author = aAuthor;
-			pages = aPages;
-			price = aPrice;
-		}
+// 		Book(string aTitle, string aAuthor, int aPages, int aPrice) {
+// 			title = aTitle;
+// 			author = aAuthor;
+// 			pages = aPages;
+// 			price = aPrice;
+// 		}
 
-		bool isExpensive() {
-			if(price >= 100) {
-				return true;
-			}
-			return false;
-		}
+// 		bool isExpensive() {
+// 			if(price >= 100) {
+// 				return true;
+// 			}
+// 			return false;
+// 		}
 
-		void setAuthor(string aAuthor) {
-			author = aAuthor;
-		}
+// 		void setAuthor(string aAuthor) {
+// 			author = aAuthor;
+// 		}
 
-		string getAuthor() {
-			return author;
-		}
-};
+// 		string getAuthor() {
+// 			return author;
+// 		}
+// };
 
-void sayHi(string name, int age) {
-	cout << "Hello User" << name << "age:" << age << endl;
+int distanceFallen(int initialHeight, int time) {
+	return initialHeight - (constants::gravity * pow(time, 2))/2;
 }
 
 int main() {
 
-	// Book book1("harry", "clrence", 500, 10000);
+	int initialHeight;
+	int height;
+	int seconds;
 
-	// book1.setAuthor("reset the author of basdook 1");
+	cout << "Enter the height of the tower in meters: ";
+	cin >> initialHeight;
 
-	// Book book2("asd", "test", 5, 5);
+	height = initialHeight;
 
-	// cout << book1.getAuthor() << endl;
+	while(height > 0) {
+		height = distanceFallen(initialHeight, seconds);
+		
+		if(height < 0) {
+			height = 0;
+		}
 
-	int x = 3;
-	int y = 5;
-
-    cout << "The sum is: \t" << add(x, y) << endl;
-    cout << "This is the number pi: \t" << constants::pi << endl;
-
+		cout << "At " << seconds << " seconds, the ball is at height: " << height << " meters" << endl;
+		seconds++;
+	}
 
 	return 0;
 }
