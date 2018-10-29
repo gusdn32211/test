@@ -1,6 +1,6 @@
 #include <iostream>
 #include "headers/add.h"
-
+#include "headers/constants.h"
 using namespace std;
 
 class Book {
@@ -51,7 +51,8 @@ int main() {
 	int x = 3;
 	int y = 5;
 
-    cout << "The sum is: \n" << add(x, y) << endl;
+    cout << "The sum is: \t" << add(x, y) << endl;
+    cout << "This is the number pi: \t" << constants::pi << endl;
 
 
 	return 0;
