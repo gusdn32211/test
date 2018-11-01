@@ -1,47 +1,11 @@
 #include <iostream>
-#include <math.h> 
-#include "headers/add.h"
-#include "headers/constants.h"
+#include "headers/helpers.h"
 
-using namespace std;
+#include <vector>
 
-// class Book {
-// 	private: 
-// 		int price;
-// 		string title;
-// 		string author;
-// 		int pages;
-// 	public: 
+using namespace std;		
 
-// 		Book(string aTitle, string aAuthor, int aPages, int aPrice) {
-// 			title = aTitle;
-// 			author = aAuthor;
-// 			pages = aPages;
-// 			price = aPrice;
-// 		}
-
-// 		bool isExpensive() {
-// 			if(price >= 100) {
-// 				return true;
-// 			}
-// 			return false;
-// 		}
-
-// 		void setAuthor(string aAuthor) {
-// 			author = aAuthor;
-// 		}
-
-// 		string getAuthor() {
-// 			return author;
-// 		}
-// };
-
-int distanceFallen(int initialHeight, int time) {
-	return initialHeight - (constants::gravity * pow(time, 2))/2;
-}
-
-int main() {
-
+void gravityFunction() {
 	int initialHeight;
 	int height;
 	int seconds;
@@ -61,6 +25,53 @@ int main() {
 		cout << "At " << seconds << " seconds, the ball is at height: " << height << " meters" << endl;
 		seconds++;
 	}
+}
+
+enum MonsterType { Ogre, Dragon, Orc, GiantSpider, Slime, Unknown };
+
+class Monster {
+	public:
+	MonsterType type;
+	string name;
+	int health;
+
+	Monster(MonsterType aType, string aName, int aHealth) {
+		name = aName;
+		health = aHealth;
+
+		if (aType == Ogre || aType == Dragon || aType == Orc || aType == GiantSpider || aType == Slime) {
+			type = aType;
+		} else {
+			type = Unknown;
+		}
+	}
+};
+
+int main() {
+
+	// gravityFunction();
+	// Monster m1 = Monster(Ogre, "cl", 100);
+
+	vector<int> myArray { 7 ,2, 5, 10, 1 };
+	cout << myArray.size() << endl;
+
+	sort(myArray.begin(), myArray.end());
+
+	for(const auto &n : myArray) {
+		cout << n << endl;
+	}
+
+	// cout << "hisd" << endl;
+
+	// int array[] = { 6, 3, 2, 9, 7, 1, 5, 4, 8 };
+
+	// const int arrayLength = sizeof(array) / sizeof(*array);		
+	// sort(array, array + arrayLength);
+
+	// for(const auto &i : array) {
+	// 	cout<< i << endl;
+	// }
+
 
 	return 0;
 }
